@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .collapse{
+            background-color: green;
+            margin: 5px;
+        }
+        .alpha{
+            font-size: 20px;
+        }
+        .beta{
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    let block = document.createElement('div');
+    block.classList.add('wrap', 'collapse', 'alpha', 'beta');
+    block.innerText = 'Hello world';
+    document.body.appendChild(block);
+
+    let clonedBlock = block.cloneNode(true);
+    document.body.appendChild(clonedBlock);
+</script>
+
+</body>
+</html>

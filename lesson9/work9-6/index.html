@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--Цикл в циклі-->
+<!-- - Є масив coursesArray котрий лежить в arrays.js (на цей момент ви вже знаєте де він знаходиться)-->
+
+<!--Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення окремих властивостей, для властивості modules зробити список з елементами-->
+<!--Приклад структири знаходиться у файлі example.png який лежить в папці з поточним фйлом-->
+<div id="course"></div>
+<script>
+    let coursesArray = [
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'git', 'java core', 'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'python core', 'python advanced']
+        },
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js', 'python', 'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
+
+    let coursearr= document.getElementById('course');
+    for (let i = 0; i < coursesArray.length; i++) {
+        let course = coursesArray[i];
+        let div = document.createElement('div');
+        let title = document.createElement('div');
+        title.innerText = ` ${course.title}`;
+        div.appendChild(title);
+        let duration = document.createElement('div');
+        duration.innerText = ` ${course.monthDuration}  ${course.hourDuration} `;
+        div.appendChild(duration);
+        let modules = document.createElement('div');
+        let modulesList = document.createElement('ul');
+        for (let a = 0; a < course.modules.length; a++) {
+            let item = document.createElement('li');
+            item.innerText = course.modules[a];
+            modulesList.appendChild(item);
+        }
+        modules.appendChild(modulesList);
+        div.appendChild(modules);
+        coursearr.appendChild(div);
+    }
+</script>
+</body>
+</html>
