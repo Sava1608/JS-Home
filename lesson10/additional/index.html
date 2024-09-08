@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Additional</title>
+    <!--    створити сторінку з довільним блоком, в середині якого є значення "100грн"-->
+    <!--    при перезавантаженні сторінки до значаення додається по 10грн, але !!!-->
+    <!--    зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.-->
+    <!--    При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається-->
+</head>
+<body>
+<div id="price">100грн</div>
+<script>
+    function visit() {
+        let arrayParse = JSON.parse(localStorage.getItem('session')) || [];
+        let now = new Date().getTime();
+        let last = arrayParse[arrayParse.length - 1]?.milis;
+        if (now - last > 1000 * 10 || arrayParse.length === 0) {
+            arrayParse.push({
+                milis: now
+            });
+            localStorage.setItem('session', JSON.stringify(arrayParse));
+            newPrice();
+        }
+    }
+
+    function newPrice() {
+        let price = 100;
+        let priceBox = document.getElementById('price');
+        let newPrice = price + 10;
+        priceBox.innerText = newPrice + 'грн';
+    }
+    visit();
+    //Я до кінця не зміг вирішити цю задачу, можливо взагалі пішов не в це русло((, тільки один раз додає +10 а потім назад повертає значення 100 грн
+</script>
+</body>
+</html>

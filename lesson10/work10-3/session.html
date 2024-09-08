@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Session Create</title>
+</head>
+<body>
+<div class="addSession"></div>
+<script>
+    function appendSession(element){
+        let h4 = document.createElement('h4');
+        element.appendChild(h4);
+        let arrSession = JSON.parse(localStorage.getItem('session'));
+        for (let arrSessionElement of arrSession) {
+            let li = document.createElement('li');
+            li.innerText = 'Day:' + arrSessionElement.day + ' Month:' + arrSessionElement.month + ' Year:' + arrSessionElement.year + ' Hour:' + arrSessionElement.hours + ' Minutes:' + arrSessionElement.minutes + ' Seconds:' + arrSessionElement.seconds
+            h4.appendChild(li);
+        }
+    }
+    appendSession(document.getElementsByClassName('addSession')[0]);
+</script>
+</body>
+</html>

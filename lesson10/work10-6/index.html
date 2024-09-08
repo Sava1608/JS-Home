@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--    - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати
+    інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача-->
+</head>
+<body>
+<input type="number" id="ageUser">
+<button onclick="checkUserAge()">Check Age</button>
+<script>
+    function checkUserAge(){
+        let age = document.getElementById('ageUser').value;
+        if (age < 18){
+            alert('Go to play roblox')
+        } else {
+            alert('Lets go watch))Nice video)')
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--    *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.-->
+    <!--    При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.-->
+
+</head>
+<body>
+<p>Select rows</p>
+<input type="number" id="rows" min="1">
+<p>Select column</p>
+<input type="number" id="column" min="1">
+<p>Text</p>
+<input type="text" id="text">
+<button onclick="ClickGenerate()">Generate</button>
+<div id="box"></div>
+<script>
+    function ClickGenerate(){
+        let rows = parseInt(document.getElementById('rows').value);
+        let column = parseInt(document.getElementById('column').value);
+        let text = document.getElementById('text');
+        let content = text.value;
+        let table = document.createElement('table')
+        for(let i = 0; i < rows; i++){
+            let row = document.createElement('tr')
+            for (let a = 0; a < column; a++){
+                let index = document.createElement('td');
+                let contentText = document.createElement('p')
+                contentText.innerText = content;
+                index.appendChild(contentText);
+                row.appendChild(index);
+            }
+            table.appendChild(row);
+        }
+
+        let contentText = document.getElementById('box');
+        contentText.appendChild(table)
+    }
+</script>
+</body>
+</html>
